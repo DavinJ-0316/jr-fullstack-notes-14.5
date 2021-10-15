@@ -449,7 +449,7 @@ const calendar = {
     setTimeout(function () {  //setTimeout是由windows发起的，而setTimeout带出了后面的function所以this指的是window
       this.currentDay++;
       console.log(this.currentDay);
-    }); // .bind(this)
+    }); // .bind(this)  //bind比setTimeout先执行了，提前绑定了this的指向然后才给setTimeout
   },
 };
 calendar.nextDay();
