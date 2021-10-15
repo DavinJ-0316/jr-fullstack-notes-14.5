@@ -446,7 +446,7 @@ calendar.nextDay();
 const calendar = {
   currentDay: 6,
   nextDay() {
-    setTimeout(function () {
+    setTimeout(function () {  //setTimeout是由windows发起的，而setTimeout带出了后面的function所以this指的是window
       this.currentDay++;
       console.log(this.currentDay);
     }); // .bind(this)
@@ -461,7 +461,7 @@ In arrow function, `this` points to the enclosing lexical context's `this`.
 const calendar = {
   currentDay: 6,
   nextDay() {
-    setTimeout(() => {
+    setTimeout(() => {  //箭头函数的this指向的是包裹箭头函数的函数的作用域所指向的this  //arrow function不能用bind call apply去指定this //arrow function不自带this的发动权，它是依附于包裹箭头函数的函数的作用域所指向的this
       this.currentDay++;
       console.log(this.currentDay);
     });
